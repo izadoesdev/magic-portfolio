@@ -14,6 +14,7 @@ import { baseURL } from "@/app/resources";
 import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
+import React from "react";
 
 export async function generateMetadata() {
   const title = about.title;
@@ -122,7 +123,7 @@ export default function About() {
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
                 {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
+                  <Tag key={language} size="l">
                     {language}
                   </Tag>
                 ))}
@@ -178,7 +179,7 @@ export default function About() {
                 {social.map(
                   (item) =>
                     item.link && (
-                        <>
+                        <React.Fragment key={item.name}>
                             <Button
                                 className="s-flex-hide"
                                 key={item.name}
@@ -196,7 +197,7 @@ export default function About() {
                                 icon={item.icon}
                                 variant="secondary"
                             />
-                        </>
+                        </React.Fragment>
                     ),
                 )}
               </Flex>

@@ -90,9 +90,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         code.variable,
       )}
     >
-      <ToastProvider>
-        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
-          <Background
+                <Background
             mask={{
               cursor: effects.mask.cursor,
               x: effects.mask.x,
@@ -139,8 +137,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               opacity: effects.lines.opacity as any,
             }}
           />
+      <ToastProvider>
+        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
           <Flex fillWidth minHeight="16"></Flex>
           <Header />
+          
           <Flex
             position="relative"
             zIndex={0}
